@@ -15,9 +15,7 @@ typedef struct
     Platillo *menu;
 } Sucursal;
 
-
 Sucursal *buscarMayorIngreso(Sucursal *sucursales, int totalSucursales);
-
 
 int main()
 {
@@ -54,8 +52,7 @@ int main()
         (sucursales + i)->menu =
             (Platillo *)malloc(
                 (sucursales + i)->cantidadPlatillos *
-                sizeof(Platillo)
-            );
+                sizeof(Platillo));
 
         if ((sucursales + i)->menu == NULL)
         {
@@ -83,26 +80,25 @@ int main()
 
     mayor = buscarMayorIngreso(
         sucursales,
-        totalSucursales
-    );
+        totalSucursales);
 
     printf("\nRESULTADOS\n");
 
     if (mayor != NULL)
     {
-        printf("\nSucursal con mayor ingreso: %s\n",mayor->nombre);
+        printf("\nSucursal con mayor ingreso: %s\n", mayor->nombre);
     }
 
     for (i = 0; i < totalSucursales; i++)
     {
         float ingreso = 0;
 
-        for (j = 0;j < (sucursales + i)->cantidadPlatillos;j++)
+        for (j = 0; j < (sucursales + i)->cantidadPlatillos; j++)
         {
-            ingreso = ingreso +((sucursales + i)->menu + j)->precio *((sucursales + i)->menu + j)->cantidadVendida;
+            ingreso = ingreso + ((sucursales + i)->menu + j)->precio * ((sucursales + i)->menu + j)->cantidadVendida;
         }
 
-        printf("Ingreso de %s: %.2f\n",(sucursales + i)->nombre,ingreso);
+        printf("Ingreso de %s: %.2f\n", (sucursales + i)->nombre, ingreso);
     }
 
     for (i = 0; i < totalSucursales; i++)
@@ -115,9 +111,8 @@ int main()
     return 0;
 }
 
-
 /* Funcion que busca la sucursal con mayor ingreso */
-Sucursal *buscarMayorIngreso(Sucursal *sucursales,int totalSucursales)
+Sucursal *buscarMayorIngreso(Sucursal *sucursales, int totalSucursales)
 {
     Sucursal *mayor = NULL;
 
@@ -130,9 +125,9 @@ Sucursal *buscarMayorIngreso(Sucursal *sucursales,int totalSucursales)
     {
         ingreso = 0;
 
-        for (j = 0;j < (sucursales + i)->cantidadPlatillos;j++)
+        for (j = 0; j < (sucursales + i)->cantidadPlatillos; j++)
         {
-            ingreso = ingreso +((sucursales + i)->menu + j)->precio *((sucursales + i)->menu + j)->cantidadVendida;
+            ingreso = ingreso + ((sucursales + i)->menu + j)->precio * ((sucursales + i)->menu + j)->cantidadVendida;
         }
 
         if (ingreso > mayorIngreso)

@@ -14,10 +14,7 @@ typedef struct
     Pasajero *pasajeros;
 } Vuelo;
 
-
-/* Prototipo */
 int *filtrarVuelos(Vuelo *vuelos, int totalVuelos, int *cantidadFiltrados);
-
 
 int main()
 {
@@ -54,8 +51,7 @@ int main()
 
         (vuelos + i)->pasajeros =
             (Pasajero *)malloc(
-                (vuelos + i)->totalPasajeros * sizeof(Pasajero)
-            );
+                (vuelos + i)->totalPasajeros * sizeof(Pasajero));
 
         if ((vuelos + i)->pasajeros == NULL)
         {
@@ -108,7 +104,6 @@ int main()
     return 0;
 }
 
-
 int *filtrarVuelos(Vuelo *vuelos, int totalVuelos, int *cantidadFiltrados)
 {
     int *filtrados = NULL;
@@ -135,8 +130,7 @@ int *filtrarVuelos(Vuelo *vuelos, int totalVuelos, int *cantidadFiltrados)
         {
             temporal = (int *)realloc(
                 filtrados,
-                (*cantidadFiltrados + 1) * sizeof(int)
-            );
+                (*cantidadFiltrados + 1) * sizeof(int));
 
             if (temporal == NULL)
             {
